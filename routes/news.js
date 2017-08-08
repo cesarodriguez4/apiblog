@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   const news = new News();
   news.title = req.body.title;
   news.content = req.body.content;
