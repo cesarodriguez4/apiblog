@@ -16,6 +16,9 @@ router.post('/', (req, res) => {
   const news = new News();
   news.title = req.body.title;
   news.content = req.body.content;
+  news.language = req.body.language;
+  news.category = req.body.category;
+  news.date = req.body.date;
   news.save(err => {
   	if (err) {
   		res.json({error: `Error: something went wrong '${err}' `});

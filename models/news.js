@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 const newSchema = new Schema({
   title: String,
   content: String,
-  category: String
+  category: Number,
+  language: Number,
+  date: Date
 });
 
 module.exports = mongoose.model('new', newSchema);
