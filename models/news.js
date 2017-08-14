@@ -6,7 +6,8 @@ const newSchema = new Schema({
   content: String,
   category: Number,
   language: Number,
-  date: Date
+  date: Date,
+  cover: String
 });
 
 module.exports = mongoose.model('new', newSchema);

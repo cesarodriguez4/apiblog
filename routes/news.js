@@ -19,6 +19,7 @@ router.post('/', (req, res) => {
   news.content = req.body.content;
   news.language = req.body.language;
   news.category = req.body.category;
+  news.cover = req.body.cover;
   news.date = req.body.date;
   news.save(err => {
   	if (err) {
@@ -33,6 +34,7 @@ router.put('/', (req, res) => {
     item.title = req.body.title;
     item.content = req.body.content;
     item.category = req.body.category;
+    item.cover = req.body.cover;
     item.save((err) => {
       if (err) {
   	    res.json({error: `Error: something went wrong '${err}' `});
