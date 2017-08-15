@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  News.find({_id: req.params.id}, (err, row) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send(row);
+  });
+});
+
 router.post('/', (req, res) => {
   console.log(req.body);
   const news = new News();
