@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const News = require('../models/news');
+const Drafts = require('../models/drafts');
 
 /* GET users listing. */
 router.get('/', (req, res) => {
-  News.find((err, row) => {
+  Drafts.find((err, row) => {
     if (err) {
       res.json({error: `Error: something went wrong '${err}' `});
     }
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  News.find({_id: req.params.id}, (err, row) => {
+  Drafts.find({_id: req.params.id}, (err, row) => {
     if (err) {
       res.send(err);
     }
@@ -22,14 +22,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const news = new News();
-  news.title = req.body.title;
-  news.content = req.body.content;
-  news.language = req.body.language;
-  news.category = req.body.category;
-  news.cover = req.body.cover;
-  news.date = req.body.date;
-  news.save(err => {
+  const Drafts = new Drafts();
+  Drafts.title = req.body.title;
+  Drafts.content = req.body.content;
+  Drafts.cover = req.body.cover;
+  Drafts.date = req.body.date;
+  Drafts.save(err => {
   	if (err) {
   		res.json({error: `Error: something went wrong '${err}' `});
   	}
@@ -38,10 +36,9 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-  News.findById(req.body.id, (err, item) => {
+  Drafts.findById(req.body.id, (err, item) => {
     item.title = req.body.title;
     item.content = req.body.content;
-    item.category = req.body.category;
     item.cover = req.body.cover;
     item.save((err) => {
       if (err) {
@@ -53,7 +50,7 @@ router.put('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  News.remove({ _id: req.params.id}, err => {
+  Drafts.remove({ _id: req.params.id}, err => {
     if (err) {
   	  res.json({error: `Error: something went wrong '${err}' `});
     }

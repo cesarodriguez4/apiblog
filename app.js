@@ -17,8 +17,9 @@ db.once('open', function() {
   console.info(`we're connected to mongodb!`);
 });
 
-var index = require('./routes/index');
-var news = require('./routes/news');
+const index = require('./routes/index');
+const news = require('./routes/news');
+const drafts = require('./routes/drafts'); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/news', news);
+app.use('/drafts', drafts);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
