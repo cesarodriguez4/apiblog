@@ -22,12 +22,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const Drafts = new Drafts();
-  Drafts.title = req.body.title;
-  Drafts.content = req.body.content;
-  Drafts.cover = req.body.cover;
-  Drafts.date = req.body.date;
-  Drafts.save(err => {
+  const drafts = new Drafts();
+  drafts.title = req.body.title;
+  drafts.content = req.body.content;
+  drafts.cover = req.body.cover;
+  drafts.date = req.body.date;
+  drafts.save(err => {
   	if (err) {
   		res.json({error: `Error: something went wrong '${err}' `});
   	}
