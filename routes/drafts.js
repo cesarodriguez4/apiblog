@@ -22,7 +22,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   const drafts = new Drafts();
   drafts.title = req.body.title;
   drafts.content = req.body.content;
