@@ -12,7 +12,11 @@ let transporter = nodemailer.createTransport({
     auth: {
         type: 'OAuth2',
         user: 'cesarodriguez4@gmail.com',
-        accessToken: 'ya29.GltfBXrmg90g0OwgPgTLsmjQLuk6YvKynlV21eF4ZInC26t3eTOTdSFm5cCQonwbp5suSQwZ-B8SsY-ZRMLjeItcA0c5s0QLvBn9AyykSEZ5YEcHsTp_C5NAGfJ4'
+        clientId: '899561628849-djspuphvri013rsio5rsofs8rji5673c.apps.googleusercontent.com',
+        clientSecret: 'tCtoPOb7lGhzf-AUj0ejKvhZ',
+        accessToken: 'ya29.GltgBWWrJsDtneZpIyLUXssta_KqtjIEyQx79cvCPiCHmD7Gc47eD-l5qScY-5mpaFdcDEjXujgZNgtUh25T7fYFYBcSI8w24Vivx3P4W4azsCcI-d9pBufdaG9s',
+        refreshToken: '1/gmblXMlDIVgjjOdscO1uctJr94jKc4FUuXBB9vn85ZelKEil6Fq7_lTyv3yutYy7',
+        expires: 3600
     }
 });
 
@@ -25,6 +29,7 @@ transporter.verify(function(error, success) {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   if (validator.isEmail(req.body.email)) {
     const email1 = {
     from: 'cesarodriguez4@gmail.com',
