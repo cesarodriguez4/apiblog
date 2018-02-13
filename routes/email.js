@@ -3,8 +3,6 @@ const router = express.Router();
 const validator = require('validator');
 const nodemailer = require('nodemailer');
 
-console.log('chi chi chi, lelelele');
-
 let transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
     port: 465,
@@ -29,7 +27,6 @@ transporter.verify(function(error, success) {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   if (validator.isEmail(req.body.email)) {
     const email1 = {
     from: 'cesarodriguez4@gmail.com',
